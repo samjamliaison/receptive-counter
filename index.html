@@ -23,35 +23,19 @@
         <main>
             <div class="counter-section">
                 <p class="label">Total Users</p>
-                <div class="counter-controls">
-                    <button id="decrement" class="control-btn decrement" aria-label="Decrease">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                    </button>
-                    <div class="counter-wrapper">
-                        <div id="counter" class="counter">0</div>
-                        <div class="counter-shine"></div>
-                    </div>
-                    <button id="increment" class="control-btn increment" aria-label="Increase">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                    </button>
+                <div class="counter-wrapper">
+                    <div id="counter" class="counter">0</div>
+                    <div class="counter-shine"></div>
                 </div>
                 <p class="tagline">and growing! 🚀</p>
-                
-                <div class="quick-buttons">
-                    <button class="quick-btn" data-delta="-10">-10</button>
-                    <button class="quick-btn" data-delta="-5">-5</button>
-                    <button class="quick-btn" data-delta="5">+5</button>
-                    <button class="quick-btn" data-delta="10">+10</button>
-                    <button class="quick-btn" data-delta="25">+25</button>
-                </div>
             </div>
 
             <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-icon">📈</span>
+                    <span class="stat-label">This Week</span>
+                    <span id="weekly-growth" class="stat-value">+0</span>
+                </div>
                 <div class="stat-card">
                     <span class="stat-icon">🎯</span>
                     <span class="stat-label">Goal</span>
@@ -62,24 +46,33 @@
                     <span class="stat-label">Progress</span>
                     <span id="progress" class="stat-value">0%</span>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-icon">📅</span>
-                    <span class="stat-label">Updated</span>
-                    <span id="last-updated" class="stat-value">--</span>
-                </div>
             </div>
 
             <div class="progress-bar-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>
-
-            <div id="sync-status" class="sync-status">
-                <span class="sync-dot"></span>
-                <span class="sync-text">Synced</span>
-            </div>
         </main>
 
-        <button id="celebrate-btn" class="celebrate-fab" title="Celebrate!">🎉</button>
+        <div id="admin-toggle" class="admin-toggle" title="Admin Panel">⚙️</div>
+        
+        <div id="admin-panel" class="admin-panel hidden">
+            <h3>📊 Update Stats</h3>
+            <div class="input-group">
+                <label for="user-count">Total Users</label>
+                <input type="number" id="user-count" placeholder="Enter user count">
+            </div>
+            <div class="input-group">
+                <label for="weekly-input">Weekly Growth</label>
+                <input type="number" id="weekly-input" placeholder="New users this week">
+            </div>
+            <div class="input-group">
+                <label for="goal-input">Goal</label>
+                <input type="number" id="goal-input" placeholder="Target user count">
+            </div>
+            <button id="update-btn" class="update-btn">🔄 Update Counter</button>
+            <button id="celebrate-btn" class="celebrate-btn">🎉 Celebrate!</button>
+            <p class="admin-note">Data is saved locally in your browser</p>
+        </div>
 
         <footer>
             <p>Let's crush it, team! 💪</p>
@@ -87,12 +80,6 @@
     </div>
 
     <canvas id="confetti-canvas"></canvas>
-    
-    <script>
-        // Google Sheet Config
-        const SHEET_ID = '1iecchZvo4qq1P7DENuRec7siw0_ubOjtN7CorJzUv9Y';
-        const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
